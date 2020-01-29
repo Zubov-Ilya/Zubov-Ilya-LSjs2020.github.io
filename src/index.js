@@ -42,7 +42,12 @@ function sumWithDefaults(a, b = 100) {
  Пример:
    returnFnResult(() => 'привет') вернет 'привет'
  */
+
 function returnFnResult(fn) {
+  return fn;
+}
+function fn(text) {
+  return text;
 }
 
 /*
