@@ -62,19 +62,15 @@ function returnFnResult(fn) {
  Пример:
    var f = returnCounter(10);
 
-   console.log(f()); // выведет 11
-   console.log(f()); // выведет 12
-   console.log(f()); // выведет 13
+    console.log(f()); // выведет 11
+    console.log(f()); // выведет 12
+    console.log(f()); // выведет 13
  */
 
-function returnCounter(number = 0) {
-  let count = 0;
-
-  return function() {
-    count++;
-    return count + number;
+function returnCounter(number) {
+  return function () {
+      return number + 1;
   };
-
 };
 
 /*
