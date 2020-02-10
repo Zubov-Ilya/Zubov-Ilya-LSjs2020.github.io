@@ -6,8 +6,18 @@
  Напишите аналог встроенного метода forEach для работы с массивами
  Посмотрите как работает forEach и повторите это поведение для массива, который будет передан в параметре array
  */
-function forEach(array, fn) {
+
+function forEach (fn) {
+  for (let i = 0; i < this.length; i++) {
+    fn(this[i], i , this)
+  }
 }
+
+Array.prototype.myEach = forEach;
+
+a.forEach((e, i, arr) => {
+  console.log(e, i, arr)
+})
 
 /*
  Задание 2:
@@ -15,8 +25,20 @@ function forEach(array, fn) {
  Напишите аналог встроенного метода map для работы с массивами
  Посмотрите как работает map и повторите это поведение для массива, который будет передан в параметре array
  */
-function map(array, fn) {
+
+
+function map (fn) {
+  for (let i = 0; i < this.length; i++) {
+    fn(this[i], i , this)
+  }
 }
+
+Array.prototype.myMap = map;
+
+a.map((e, i, arr) => {
+  console.log(e * 2);
+});
+
 
 /*
  Задание 3:
@@ -24,8 +46,18 @@ function map(array, fn) {
  Напишите аналог встроенного метода reduce для работы с массивами
  Посмотрите как работает reduce и повторите это поведение для массива, который будет передан в параметре array
  */
-function reduce(array, fn, initial) {
+function reduce (fn) {
+  for (let i = 0; i < this.length; i++) {
+    fn(this[i], i, this)
+  }
 }
+
+Array.prototype.myReduce = reduce;
+
+a.myReduce((e, i, arr) => {
+  var current = arr[0];
+  console.log(current)
+});
 
 /*
  Задание 4:
@@ -36,7 +68,10 @@ function reduce(array, fn, initial) {
    upperProps({ name: 'Сергей', lastName: 'Петров' }) вернет ['NAME', 'LASTNAME']
  */
 function upperProps(obj) {
-}
+  for (var key in a) {
+  console.log(key, ':', a[key].toUpperCase());
+  };
+};
 
 /*
  Задание 5 *:
