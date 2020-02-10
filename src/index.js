@@ -7,17 +7,16 @@
  Посмотрите как работает forEach и повторите это поведение для массива, который будет передан в параметре array
  */
 
-function forEach (fn) {
-  for (let i = 0; i < this.length; i++) {
-    fn(this[i], i , this)
-  }
-}
+function forEach(array, fn) {
+  for ( let i = 0; i < array.length; i++) {
+    fn(array[i], i, array);
+  };
+};
 
-Array.prototype.myEach = forEach;
-
-a.forEach((e, i, arr) => {
+const eachTest = (e, i, arr) => {
   console.log(e, i, arr)
-})
+};
+forEach([1,3,5,7], eachTest)
 
 /*
  Задание 2:
@@ -26,18 +25,15 @@ a.forEach((e, i, arr) => {
  Посмотрите как работает map и повторите это поведение для массива, который будет передан в параметре array
  */
 
+function map(array, fn) {
+  for ( let i = 0; i < array.length; i++) {
+    fn(array[i], i, array);
+  };
+};
 
-function map (fn) {
-  for (let i = 0; i < this.length; i++) {
-    fn(this[i], i , this)
-  }
-}
-
-Array.prototype.myMap = map;
-
-a.map((e, i, arr) => {
-  console.log(e * 2);
-});
+const mapTest = (e) => {
+  console.log(e)
+};
 
 
 /*
@@ -46,18 +42,16 @@ a.map((e, i, arr) => {
  Напишите аналог встроенного метода reduce для работы с массивами
  Посмотрите как работает reduce и повторите это поведение для массива, который будет передан в параметре array
  */
-function reduce (fn) {
-  for (let i = 0; i < this.length; i++) {
-    fn(this[i], i, this)
-  }
-}
+function reduce(array, fn, initial = 0) {
+  for ( let i = 0; i < array.length; i++) {
+    fn(array[i], i, array)
+  };
+};
 
-Array.prototype.myReduce = reduce;
-
-a.myReduce((e, i, arr) => {
-  var current = arr[0];
-  console.log(current)
-});
+const reduceTest = (accum = array[0], currentValue) => {
+  accum = accum + currentValue;
+  console.log(accum)
+};
 
 /*
  Задание 4:
