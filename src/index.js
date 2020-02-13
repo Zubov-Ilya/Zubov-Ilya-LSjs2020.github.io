@@ -42,16 +42,17 @@ const mapTest = (e) => {
  Напишите аналог встроенного метода reduce для работы с массивами
  Посмотрите как работает reduce и повторите это поведение для массива, который будет передан в параметре array
  */
-function reduce(array, fn, initial = 0) {
-  for ( let i = 0; i < array.length; i++) {
-    fn(array[i], i, array)
-  };
-};
+function reduce(array, fn) {
+  return fn(array)
+}
 
-const reduceTest = (accum = array[0], currentValue) => {
-  accum = accum + currentValue;
-  console.log(accum)
-};
+function arraySum(count){
+var sum = 0;
+for(var i = 0; i < count.length; i++){
+    sum += count[i];
+    }
+return sum;
+}
 
 /*
  Задание 4:
