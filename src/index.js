@@ -11,9 +11,14 @@
    createDivWithText('loftschool') // создаст элемент div, поместит в него 'loftschool' и вернет созданный элемент
  */
 function createDivWithText(text) {
-  const div = document.createElement('div');;
-  div.innerHTML = `${text}`
+    let div = document.createElement('div');
+    div.innerHTML = `${text}`
+
+    document.body.appendChild(div)
+
+    return div;
 }
+
 
 /*
  Задание 2:
@@ -24,6 +29,7 @@ function createDivWithText(text) {
    prepend(document.querySelector('#one'), document.querySelector('#two')) // добавит элемент переданный первым аргументом в начало элемента переданного вторым аргументом
  */
 function prepend(what, where) {
+  where.prepend(what)
 }
 
 /*
@@ -45,7 +51,17 @@ function prepend(what, where) {
 
    findAllPSiblings(document.body) // функция должна вернуть массив с элементами div и span т.к. следующим соседом этих элементов является элемент с тегом P
  */
+
+
 function findAllPSiblings(where) {
+  let where1 = where.children;
+    let arr = [];
+    for (let i = 0; i < where1.length - 1; i++) {
+        if (where1[i].nextElementSibling.nodeName === 'P') {
+            arr.push(where1[i]);
+        }
+    }
+    return arr;
 }
 
 /*
@@ -66,13 +82,15 @@ function findAllPSiblings(where) {
    findError(document.body) // функция должна вернуть массив с элементами 'привет' и 'loftschool'
  */
 function findError(where) {
-    var result = [];
+    let arr = [];
 
-    for (var child of where.childNodes) {
-        result.push(child.innerText);
+    for (i = 0; i < where.childNodes.length; i++) {
+      if (where.childNodes[i].nodeType === 1) {
+        arr.push(where.childNodes[i].innerText);
+      }
     }
 
-    return result;
+    return arr;
 }
 
 /*
