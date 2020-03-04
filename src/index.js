@@ -49,9 +49,10 @@ function prepend(what, where) {
    findAllPSiblings(document.body) // функция должна вернуть массив с элементами div и span т.к. следующим соседом этих элементов является элемент с тегом P
  */
 function findAllPSiblings(where) {
-    var w = where.children;
-    var arr = [];
-    for (var i = 0; i < w.length - 1; i++) {
+    let w = where.children;
+    let arr = [];
+
+    for (let i = 0; i < w.length - 1; i++) {
         if (w[i].nextElementSibling.nodeName === 'P') {
             arr.push(w[i]);
         }
@@ -78,9 +79,9 @@ function findAllPSiblings(where) {
    findError(document.body) // функция должна вернуть массив с элементами 'привет' и 'loftschool'
  */
 function findError(where) {
-    var result = [];
+    let result = [];
 
-    for (var i = 0; i < where.childNodes.length; i++) {
+    for (let i = 0; i < where.childNodes.length; i++) {
         if (where.childNodes[i].nodeType === 1) {
             result.push(where.childNodes[i].innerText);
         }
@@ -102,9 +103,9 @@ function findError(where) {
    должно быть преобразовано в <div></div><p></p>
  */
 function deleteTextNodes(where) {
-    var w = where.childNodes;
+    let w = where.childNodes;
 
-    for (var i = 0; i < w.length; i++) {
+    for (let i = 0; i < w.length; i++) {
         if (w[i].nodeType === 3) {
             w[i].parentNode.removeChild(w[i]);
         }
